@@ -1,0 +1,117 @@
+{
+	"info": {
+		"_postman_id": "a2a951e7-39e5-4779-bc89-4e0d59e5a221",
+		"name": "test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "getByMonth",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/rewards/monthly?year=2022&month=13",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"rewards",
+						"monthly"
+					],
+					"query": [
+						{
+							"key": "year",
+							"value": "2022"
+						},
+						{
+							"key": "month",
+							"value": "13"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "publish",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"transactionId\":1233,\n    \"transactionAmount\":100.0,\n    \"transactionTime\": \"2022-10-21 10:10:10\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/rewards/transaction/publish"
+			},
+			"response": []
+		},
+		{
+			"name": "bulk publish",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[{\n    \"transactionId\":1233,\n    \"transactionAmount\":100.0,\n    \"transactionTime\": \"2022-10-21 10:10:10\"\n    \n},\n{\n    \"transactionId\":1233,\n    \"transactionAmount\":100.0,\n    \"transactionTime\": \"2022-11-21 10:10:10\"\n    \n},\n{\n    \"transactionId\":1233,\n    \"transactionAmount\":100.0,\n    \"transactionTime\": \"2022-09-21 10:10:10\"\n    \n}\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/rewards/transaction/bulk/publish"
+			},
+			"response": []
+		},
+		{
+			"name": "duration",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[{\n    \"transactionId\":1233,\n    \"transactionAmount\":100.0\n    \n},\n{\n    \"transactionId\":1233,\n    \"transactionAmount\":100.0\n    \n},\n{\n    \"transactionId\":1233,\n    \"transactionAmount\":100.0\n    \n}\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/rewards/duration?startDate=2022-10-11&endDate=2022-11-22",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"rewards",
+						"duration"
+					],
+					"query": [
+						{
+							"key": "startDate",
+							"value": "2022-10-11"
+						},
+						{
+							"key": "endDate",
+							"value": "2022-11-22"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
