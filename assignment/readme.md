@@ -20,7 +20,7 @@ input: [{"transactionId":1233, "transactionAmount":100.0,    "transactionTime": 
 ### GET -> "http://localhost:8080/rewards/duration?startDate=2022-10-11&endDate=2022-11-22"
 #### To get rewards in a particular duration
 
-To Access Db http://localhost:8080/h2.ui
+To Access Db http://localhost:8080/h2-ui
 Jdbc url :  jdbc:h2:mem:testdb
 user : sa
 password : 
